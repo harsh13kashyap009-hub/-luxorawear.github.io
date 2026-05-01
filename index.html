@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora Wear - Luxury Fashion Couture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Luxora Wear - Exclusive luxury fashion for discerning gentlemen & elegant ladies. Couture excellence.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Playfair Display', serif; 
+            line-height: 1.6; 
+            color: #2c2c2c; 
+            overflow-x: hidden;
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+        /* Luxury Colors */
+        :root {
+            --black: #0f0f0f;
+            --white: #f8f5f0;
+            --gold: #D4AF37;
+            --gold-dark: #B8860B;
+            --light-gold: #F0E68C;
+            --brown: #3C2F2F;
+        }
+
+        /* Luxury Animations */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        header { 
+            background: rgba(15,15,15,0.95); 
+            backdrop-filter: blur(20px); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            background: linear-gradient(45deg, var(--gold), var(--light-gold)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212,175,55,0.5);
+        }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem; 
+            border-radius: 50px; 
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-links a::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent); transition: 0.5s;
+        }
+        .nav-links a:hover::before { left: 100%; }
+        .nav-links a:hover { 
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark)); 
+            color: var(--black); 
+            transform: scale(1.05);
+            animation: glow 1s infinite;
+        }
+        .phone-header { 
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark)); 
+            color: var(--black); 
+            padding: 1rem 2rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+            transition: all 0.3s;
+        }
+        .phone-header:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(212,175,55,0.6); }
+
+        /* Hero */
+        .hero { 
+            min-height: 100vh; 
+            background: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(0,0,0,0.8) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><defs><radialGradient id="g" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="%23D4AF37" stop-opacity="0.3"/><stop offset="100%" stop-color="%230f0f0f"/></radialGradient></defs><rect fill="url(%23g)" width="1600" height="900"/><path fill="%23D4AF37" opacity="0.1" d="M0 0h1600v900H0z"/></svg>'); 
+            display: flex; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--white); 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); animation: float 6s ease-in-out infinite;
+        }
+        .hero-content { animation: fadeInUp 1.5s ease-out; z-index: 2; position: relative; }
+        .hero h1 { 
+            font-family: 'Cinzel', serif; 
+            font-size: 5rem; 
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            background: linear-gradient(45deg, var(--gold), var(--light-gold), var(--gold)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(212,175,55,0.8);
+            letter-spacing: 3px;
+        }
+        .hero p { font-size: 1.6rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.95; }
+        .cta-button { 
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark)); 
+            color: var(--black); 
+            padding: 25px 60px; 
+            border: none; 
+            border-radius: 60px; 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+            font-family: 'Cinzel', serif;
+            cursor: pointer; 
+            text-decoration: none; 
+            box-shadow: 0 20px 50px rgba(212,175,55,0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: glow 2s infinite;
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: 0.6s;
+        }
+        .cta-button:hover::before { left: 100%; }
+        .cta-button:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 30px 70px rgba(212,175,55,0.7); }
+
+        /* Sections */
+        .section { padding: 120px 0; }
+        .categories { background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); }
+        .products { background: rgba(248,245,240,0.03); }
+        .section-title { 
+            text-align: center; 
+            font-family: 'Cinzel', serif;
+            font-size: 4rem; 
+            margin-bottom: 5rem; 
+            color: var(--white);
+            position: relative;
+            letter-spacing: 2px;
+        }
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 150px; 
+            height: 4px; 
+            background: linear-gradient(90deg, var(--gold), var(--light-gold)); 
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
+
+        /* Category Cards */
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 3rem; }
+        .category-card { 
+            text-align: center; 
+            padding: 4rem 3rem; 
+            background: rgba(255,255,255,0.05); 
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(212,175,55,0.3);
+            border-radius: 30px; 
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        .category-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(212,175,55,0.1), transparent); opacity: 0; transition: 0.6s;
+        }
+        .category-card:hover::before { opacity: 1; }
+        .category-card:hover { 
+            border-color: var(--gold); 
+            transform: translateY(-25px) rotateX(10deg); 
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 0 60px rgba(212,175,55,0.4);
+            animation: glow 1.5s infinite;
+        }
+        .category-card h3 { 
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem; 
+            margin-bottom: 2rem; 
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Luxury Products */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; }
+        .product-card { 
+            background: rgba(255,255,255,0.08); 
+            backdrop-filter: blur(25px);
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(212,175,55,0.2);
+            position: relative;
+        }
+        .product-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold)); transform: scaleX(0); transition: 0.6s;
+        }
+        .product-card:hover::before { transform: scaleX(1); }
+        .product-card:hover { 
+            transform: translateY(-30px) scale(1.03); 
+            box-shadow: 0 60px 120px rgba(0,0,0,0.6), 0 0 80px rgba(212,175,55,0.4);
+            border-color: var(--gold);
+        }
+        .product-image { 
+            height: 320px; 
+            background: linear-gradient(135deg, var(--gold), var(--light-gold), var(--brown)); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 5.5rem; 
+            color: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-info { padding: 2.5rem; }
+        .product-title { 
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+        .product-price { 
+            font-size: 2.2rem; 
+            color: var(--gold); 
+            font-weight: 700; 
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(212,175,55,0.5);
+        }
+        .affiliate-btn { 
+            background: linear-gradient(45deg, var(--black), var(--brown)); 
+            color: var(--gold); 
+            padding: 18px 35px; 
+            border: 2px solid var(--gold); 
+            border-radius: 40px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-weight: 600; 
+            font-size: 1.2rem;
+            font-family: 'Cinzel', serif;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .affiliate-btn::before {
+            content: '→'; margin-left: 10px; transition: 0.4s;
+        }
+        .affiliate-btn:hover { 
+            background: linear-gradient(45deg, var(--gold), var(--light-gold)); 
+            color: var(--black); 
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.6);
+        }
+        .affiliate-btn:hover::before { margin-left: 15px; }
+        .edit-note { 
+            background: rgba(212,175,55,0.2); 
+            padding: 12px; 
+            border-radius: 15px; 
+            margin-top: 15px; 
+            font-size: 0.95rem; 
+            color: var(--gold); 
+            border: 1px solid rgba(212,175,55,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Contact Hero */
+        .contact-hero { 
+            background: linear-gradient(135deg, var(--gold), var(--light-gold)); 
+            color: var(--black); 
+            padding: 80px 0; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2), transparent 50%); animation: float 8s ease-in-out infinite reverse;
+        }
+        .contact-hero h2 { font-family: 'Cinzel', serif; font-size: 3.2rem; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+        .phone-display { 
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem; 
+            font-weight: 700; 
+            color: var(--black); 
+            text-decoration: none; 
+            display: inline-block; 
+            margin: 1.5rem 0; 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            position: relative; z-index: 2;
+            transition: all 0.3s;
+        }
+        .phone-display:hover { transform: scale(1.05); text-shadow: 0 0 30px rgba(212,175,55,0.8); }
+
+        /* Footer */
+        footer { 
+            background: linear-gradient(180deg, var(--black), var(--brown)); 
+            color: var(--white); 
+            padding: 5rem 0 2rem; 
+            position: relative;
+        }
+        footer::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent, var(--gold));
+        }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-bottom: 3rem; }
+        .footer-section h3 { 
+            font-family: 'Cinzel', serif;
+            color: var(--gold); 
+            margin-bottom: 2rem; 
+            font-size: 1.8rem;
+            text-shadow: 0 2px 10px rgba(212,175,55,0.5);
+        }
+        .phone-footer { 
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            color: var(--light-gold); 
+            text-decoration: none; 
+            display: block; 
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+        .phone-footer:hover { color: var(--gold); transform: translateX(10px); }
+        .social-links { display: flex; gap: 2rem; margin-top: 2rem; }
+        .social-links a { 
+            color: var(--white); 
+            font-size: 2rem; 
+            text-decoration: none; 
+            transition: all 0.4s;
+            padding: 1rem;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.2);
+        }
+        .social-links a:hover { 
+            background: var(--gold); 
+            color: var(--black); 
+            transform: translateY(-5px) scale(1.2);
+            box-shadow: 0 15px 30px rgba(212,175,55,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .nav-links { display: none; }
+            .section-title { font-size: 2.8rem; }
+            .products-grid { grid-template-columns: 1fr; }
+            .phone-display { font-size: 2.5rem; }
+            .category-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">LUXORA WEAR</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mens">Men's</a></li>
+                <li><a href="#womens">Women's</a></li>
+                <li><a href="#shop">Couture</a></li>
+            </ul>
+            <a href="tel:+1234567890" class="phone-header">📞 Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>LUXORA WEAR</h1>
+                <p>Exquisite couture for the modern gentleman and elegant lady. Where luxury meets timeless elegance.</p>
+                <a href="#shop" class="cta-button">Discover Couture</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h2>Exclusive Client Services</h2>
+            <p>Personal styling • Private appointments • Bespoke tailoring</p>
+            <a href="tel:+1234567890" class="phone-display">+1 (234) 567-8900</a>
+            <p>Concierge service available 24/7</p>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories section">
+        <div class="container">
+            <h2 class="section-title">Maison Collections</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="scrollToSection('mens')">
+                    <div style="font-size: 6rem;">👔</div>
+                    <h3>Gentleman's Wardrobe</h3>
+                    <p>Bespoke suits • Silk shirts • Fine accessories</p>
+                </div>
+                <div class="category-card" onclick="scrollToSection('womens')">
+                    <div style="font-size: 6rem;">👗</div>
+                    <h3>Haute Couture</h3>
+                    <p>Evening gowns • Daywear • Designer handbags</p>
+                </div>
+                <div class="category-card" onclick="scrollToSection('shop')">
+                    <div style="font-size: 6rem;">⭐</div>
+                    <h3>Signature Pieces</h3>
+                    <p>Most coveted • Limited edition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="shop" class="products section">
+        <div class="container">
+            <h2 class="section-title">Signature Collection</h2>
+            <div class="products-grid">
+                <div class="product-card" id="mens">
+                    <div class="product-image">👔</div>
+                    <div class="product-info">
+                        <div class="product-title">Savile Row Bespoke Suit</div>
+                        <div class="product-price">$2,950</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(1)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👕</div>
+                    <div class="product-info">
+                        <div class="product-title">Monogrammed Silk Shirt</div>
+                        <div class="product-price">$850</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(2)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+
+                <div class="product-card" id="womens">
+                    <div class="product-image">👗</div>
+                    <div class="product-info">
+                        <div class="product-title">Parisian Silk Gown</div>
+                        <div class="product-price">$4,200</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(3)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👠</div>
+                    <div class="product-info">
+                        <div class="product-title">Crystal Embellished Heels</div>
+                        <div class="product-price">$1,450</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(4)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <div class="product-info">
+                        <div class="product-title">Swiss Automatic Chronograph</div>
+                        <div class="product-price">$12,500</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(5)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👜</div>
+                    <div class="product-info">
+                        <div class="product-title">Crocodile Leather Birkin</div>
+                        <div class="product-price">$28,000</div>
+                        <a href="#" target="_blank" class="affiliate-btn" onclick="editLink(6)">Acquire Now</a>
+                        <div class="edit-note">✨ Edit: Replace href="#" with your link</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LUXORA WEAR</h3>
+                    <p>Since 2024 | Couture excellence for the elite.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Client Services</h3>
+                    <a href="tel:+1234567890" class="phone-footer">+1 (234) 567-8900</a>
+                    <p>contact@luxorawear.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Maison</h3>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.3); font-size: 0.9rem; opacity: 0.8;">
+                <p>&copy; 2024 Luxora Wear Maison. All rights reserved. | Commissions earned through curated selections.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function editLink(num) {
+            alert(`✨ LUXURY EDIT #${num}:\n\n1️⃣ luxorawear.github.io\n2️⃣ Pencil icon → Edit\n3️⃣ Ctrl+F "editLink(${num})"\n4️⃣ href="#" → YOUR LINK\n5️⃣ Commit → LIVE!\n\n💎 Phone: Find "+1 (234) 567-8900"\n💎 Logo: Find "LUXORA WEAR"`);
+        }
+        
+        // Parallax & smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15,15,15,0.98)';
+            } else {
+                header.style.background = 'rgba(15,15,15,0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
